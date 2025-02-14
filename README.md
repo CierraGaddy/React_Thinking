@@ -1,8 +1,18 @@
-# React + Vite
+# Thinking in React - Product Filter App  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How State and Props Work  
 
-Currently, two official plugins are available:
+This app is built with React and helps filter a list of products based on what you type and whether they are in stock.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+State is like a memory that React keeps track of. In this app, the FilterableProductTable component has two pieces of state:  
+- filterText, which remembers what the user types in the search box  
+- inStockOnly, which remembers if the "Only show products in stock" checkbox is checked  
+
+When you type in the search bar or check the box, these values change, and the product list updates.  
+
+Props are how we share information between components. The state is in FilterableProductTable, but other components need to use it, so we pass it down as props.  
+- SearchBar gets filterText and inStockOnly as props, along with functions to update them  
+- ProductTable gets the filtered list of products and shows only the ones that match  
+- ProductRow and ProductCategoryRow display each product  
+
+Basically, state holds the changing data, and props pass that data to the right components. This way, when you search or filter, everything updates correctly!
